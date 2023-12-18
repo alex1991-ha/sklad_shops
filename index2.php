@@ -1,7 +1,8 @@
 <?php
     require ('connect_db.php');
+    ?>    
 
-     $q = $db->query('SELECT * FROM products');
+     <!-- $q = $db->query('SELECT * FROM products');
      while($row = $q->fetch()){
          
         $id = $row["ID"];
@@ -10,8 +11,8 @@
 
         echo '<h1>'.$product.'</h1>';
     }
-    // echo '<h1>'.$product.'</h1>'
-    ?>
+     -->
+    
 
 <!DOCTYPE HTML>
 <html>
