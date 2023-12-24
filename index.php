@@ -17,9 +17,6 @@
          
         $product= $row["Product"];
         $Quantity = $row["Quantity"];
-
-        echo '<h1>'.$product.'</h1>';
-        echo '<h1>'.$Quantity.'</h1>';
     }
     ?>
 
@@ -27,7 +24,7 @@
 <html>
 	<head>
         <meta charset="utf-8">
-		<title>sklad_shop</title>
+		    <title>sklad_shop</title>
         <script src="script.js"></script>
         <link rel="stylesheet" href="style.css">
 	</head>
@@ -41,15 +38,15 @@
       <th>Код</th>
       <th>Наименование</th>
       <th>Ед. изм.</th>
-      <th>Количество</th>
+      <th class="colum">Количество</th>
     </tr>
     <tr>
-      <td>000001</td>
+      <td>1</td>
       <td><?php echo $product?></td>
-      <td>Ovendale</td>
-      <td>lovendale0@w3.org</td>
+      <td>шт</td>
+      <td class="colum"><?php echo $Quantity?></td>
     </tr>
-    <tr>
+    <!-- <tr>
       <td>000002</td>
       <td>Israel</td>
       <td>Tassell</td>
@@ -72,7 +69,7 @@
       <td>Cherye</td>
       <td>Smitheram</td>
       <td>csmitheram4@rambler.ru</td>
-    </tr>
+    </tr> -->
   
 </table>
     </div>
