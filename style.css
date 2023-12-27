@@ -42,18 +42,32 @@ th:last-child {
 td {
   padding-top: 10px;
   padding-bottom: 10px;
+  /* background: #808080; */
   color: #808080;
 }
 
 tr:nth-child(even) td {
   background: #f8f6ff;
 }
- 
+
 @media print {
- body {
-  visibility: hidden;
- } 
- .print {
-  visibility: visible;
- }
+  head {
+    visibility: hidden;
+  }
+  body {
+    visibility: hidden;
+  }
+  .print {
+    visibility: visible;
+  }
+}
+
+#centerQuantity {
+  display: block;
+  padding-left: 60px;
+}
+
+#centerUnits {
+  display: block;
+  padding-left: 35px;
 }

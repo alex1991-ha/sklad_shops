@@ -3,12 +3,14 @@ class Table
 {
 	function output_data($number, $product, $Quantity)
 	{
-		print '
+		echo '
 			<tr>
         	<td>' . $number . '</td>
         	<td>' . $product . '</td>
-        	<td>шт</td>
-        	<td>' . $Quantity . '</td>
+        	<td id="centerUnits">шт</td>
+            <td id="centerQuantity">' . $Quantity . '</td>
+        	
       		</tr>';
 	}
 }
+// <td id="centerQuantity"><input type="button" value="-">' . $Quantity . '<input type="button" value="+"></td>

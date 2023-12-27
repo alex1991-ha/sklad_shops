@@ -16,6 +16,15 @@ require('Classes.php');
 <body>
   <div>
     <input type="button" onclick="window.print()" value="Печать">
+    <input type="button" id="buttonCange" value="Изменить" onclick="change()">
+    <script>
+      function change() {
+        let input = document.createElement("input");
+        input.type = "button";
+        input.value = "Применить";
+        // document.body.append(input);
+}
+      </script>
   </div>
   <br>
   <br>
