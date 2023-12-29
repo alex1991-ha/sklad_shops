@@ -14,17 +14,9 @@ require('Classes.php');
 </head>
 
 <body>
-  <div>
-    <input type="button" onclick="window.print()" value="Печать">
+  <div id="buttons">
+    <input type="button" value="Печать" onclick="window.print()" >
     <input type="button" id="buttonCange" value="Изменить" onclick="change()">
-    <script>
-      function change() {
-        let input = document.createElement("input");
-        input.type = "button";
-        input.value = "Применить";
-        // document.body.append(input);
-}
-      </script>
   </div>
   <br>
   <br>
@@ -137,6 +129,15 @@ require('Classes.php');
       ?>
 
     </table>
+  </div>
+  <br>
+  <div id="popup">
+    <div id="popup_body">
+    <p>Наименование: <input type="text"></p>
+    <p>Количество: <input type="text"></p>
+    <input type="button" value="Отмена" onclick="close()">
+    <input type="button" value="ОК">
+    </div>
   </div>
 </body>
 
