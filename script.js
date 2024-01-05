@@ -1,15 +1,18 @@
 function change() {
+  //вывод модального окна
   let window = document.getElementById("popup");
   window.style.visibility = "visible";
-  // window.style.opacity = 1;
+  window.style.opacity = 1;
+
+  //   let name = document.getElementById("nameInPopup");
+  //   let php = '<?php echo "hello"; ?>';
+  //   name.value = php;
 }
 
-function close() {
-  // let window1 = document.getElementById("popup");
-  // window1.style.visibility = "hidden";
-  // window1.style.opacity = 0;
-  //
-  alert("hello");
+function closeWindow() {
+  let window1 = document.getElementById("popup");
+  window1.style.visibility = "hidden";
+  window1.style.opacity = 0;
 }
 
 function change_1() {

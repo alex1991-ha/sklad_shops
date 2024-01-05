@@ -92,7 +92,12 @@ tr:nth-child(even) td {
 }
 
 #popup_body {
+  /* width: 400px; */
   padding: 30px 10px;
   background-color: white;
   color: black;
+}
+
+#nameInPopup {
+  width: 165px;
 }

@@ -130,15 +130,13 @@ require('Classes.php');
 
     </table>
   </div>
-  <br>
-  <div id="popup">
-    <div id="popup_body">
-    <p>Наименование: <input type="text"></p>
-    <p>Количество: <input type="text"></p>
-    <input type="button" value="Отмена" onclick="close()">
-    <input type="button" value="ОК">
-    </div>
-  </div>
+
+  <!-- Модальное окно -->
+  <?php
+  // $PC = new Table();
+  $PC->output_data_in_popup();
+?>
+
 </body>
 
 </html>
