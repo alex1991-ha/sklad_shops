@@ -134,8 +134,8 @@ require('Classes.php');
 
   <!-- Модальное окно -->
   <?php
-  // $PC = new Table();
-  $PC->output_data_in_popup();
+  // $PC->output_data_in_popup(1);
+  // $Display->output_data_in_popup(2);
   ?>
 
 </body>

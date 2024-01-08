@@ -1,8 +1,16 @@
-function change() {
+function change1() {
   //вывод модального окна
   let window = document.getElementById("popup");
   window.style.visibility = "visible";
   window.style.opacity = 1;
+  ("<?php $PC->output_data_in_popup(1); ?>");
+}
+function change2() {
+  //вывод модального окна
+  let window = document.getElementById("popup");
+  window.style.visibility = "visible";
+  window.style.opacity = 1;
+  ("<?php $PC->output_data_in_popup(2); ?>");
 }
 
 function closeWindow() {

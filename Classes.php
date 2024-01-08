@@ -11,15 +11,15 @@ class Table
         	<td>' . $product . '</td>
         	<td id="centerUnits">шт</td>
             <td id="quantity" class="centerQuantity">' . $Quantity . '</td>
-            <td><input type="button" value="изменить" onclick="change()"></td>
+            <td><input type="button" value="изменить" onclick="change'.$number.'()"></td>
       		</tr>';
     }
 
-    public function output_data_in_popup()
+    public function output_data_in_popup($ID)
     {
         require('connect_db.php');
 
-        $q = $db->query('SELECT * FROM products WHERE ID = 1');
+        $q = $db->query('SELECT * FROM products WHERE ID = "'.$ID.'"');
         while ($row = $q->fetch()) {
             $name = "$row[Product]";
             $quantity = "$row[Quantity]";
