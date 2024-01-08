@@ -1,9 +1,13 @@
 <?php
 require('connect_db.php');
 
+$name = $_POST["name"];
+$quantity = $_POST["quantity"];
 
-$q = $db->query('UPDATE products
-                SET Product = "ПК", Quantity = 5
-                WHERE ID = 1');
+$q = $db->query(
+    'UPDATE products
+                SET Product = "' . $name . '", Quantity = ' . $quantity . '
+                WHERE ID = 1'
+);
 
-var_dump($_POST["name"]);
+header('Location: index.php');

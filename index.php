@@ -15,7 +15,7 @@ require('Classes.php');
 
 <body>
   <div id="buttons">
-    <input type="button" value="Печать" onclick="window.print()" >
+    <input type="button" value="Печать" onclick="window.print()">
     <input type="button" id="buttonCange" value="Изменить" onclick="change()">
   </div>
   <br>
@@ -28,6 +28,7 @@ require('Classes.php');
         <th>Наименование</th>
         <th>Ед. изм.</th>
         <th>Количество</th>
+        <th>Изменить</th>
       </tr>
       <?php
       //Персональный компьютер
@@ -135,7 +136,7 @@ require('Classes.php');
   <?php
   // $PC = new Table();
   $PC->output_data_in_popup();
-?>
+  ?>
 
 </body>
 
