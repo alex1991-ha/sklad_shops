@@ -28,7 +28,7 @@ class Table
 		echo '
         <div id="popup">
             <div id="popup_body">
-                <form action="update.php" method="post">
+                <form action="update.php" method="POST">
                     <p>Наименование: <input type="text" id="nameInPopup" value="'.$name.'" name="name"></p>
                     <p>Количество: <input type="text" value='.$quantity.' name="quantity"></p>
                     <input type="button" value="Отмена" onclick="closeWindow()">
