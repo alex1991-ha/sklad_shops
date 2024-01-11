@@ -134,8 +134,14 @@ require('Classes.php');
 
   <!-- Модальное окно -->
   <?php
+  //$q = $db->query('SELECT * FROM products WHERE ID = 1');
+  //while ($row = $q->fetch()) {
+  //$PC->output_data_in_popup("$row[ID]", "$row[Product]", $row["Quantity"]);
+  //}
+
   $PC->output_data_in_popup(1);
   $Display->output_data_in_popup(2);
+  $Sf18->output_data_in_popup(3);
   ?>
 
 </body>
