@@ -134,8 +134,8 @@ require('Classes.php');
 
   <!-- Модальное окно -->
   <?php
-  // $PC->output_data_in_popup(1);
-  // $Display->output_data_in_popup(2);
+  $PC->output_data_in_popup(1);
+  $Display->output_data_in_popup(2);
   ?>
 
 </body>
