@@ -16,11 +16,12 @@ require('Classes.php');
 <body>
   <div id="buttons">
     <input type="button" value="Печать" onclick="window.print()">
-    <input type="button" id="buttonCange" value="Изменить" onclick="change()">
+    <input type="button" id="buttonCange" value="Добавить" onclick="add()">
   </div>
   <br>
   <br>
   <br>
+
   <div>
     <table class="print">
       <tr>
@@ -127,22 +128,44 @@ require('Classes.php');
         $KVM = new Table();
         $KVM->output_data("$row[ID]", "$row[Product]", $row["Quantity"]);
       }
+    
+      $q = $db->query("SELECT * FROM products WHERE ID = 15");
+    while ($row = $q->fetch()) {
+        $Device15 = new Table();
+        $Device15->output_data("$row[ID]", "$row[Product]", $row["Quantity"]);
+    }
+      //добавить строку таблицы
+
+      //Валидация
+    //   try {
+    //     if (empty($name)) {
+    //         echo '<script>alert("введите")</script>'; 
+    //         exit(header('Location: ../index.php')); 
+    //     }
+    // }
+    // catch(Exception $e) {
+    //     echo$e->getMessage();
+    //}
+    // $name = $_POST["name"];
+    // $quantity = $_POST["quantity"];
+    // Header('Location: php_script/add.php?post=$name');
       ?>
 
     </table>
   </div>
 
-  <!-- Модальное окно -->
-  <?php
-  //$q = $db->query('SELECT * FROM products WHERE ID = 1');
-  //while ($row = $q->fetch()) {
-  //$PC->output_data_in_popup("$row[ID]", "$row[Product]", $row["Quantity"]);
-  //}
-
-  $PC->output_data_in_popup(1);
-  $Display->output_data_in_popup(2);
-  $Sf18->output_data_in_popup(3);
-  ?>
+  <!-- Модальное окно для добавления -->
+  <div id="popupAdd">
+    <div id="popup_body">
+      <form action="php_script/add.php" method="POST"> -->
+      <!-- <form action="index.php" method="POST"> -->
+        <p>Наименование: <input type="text" id="nameInPopupAdd" value="" name="name"></p>
+        <p>Количество: <input type="text" value="" name="quantity"></p>
+        <input type="button" value="Отмена" onclick="closeWindow()">
+        <input type="submit" value="ОК" onclick="add()" name="but">
+      </form>
+    </div>
+  </div>
 
 </body>
 

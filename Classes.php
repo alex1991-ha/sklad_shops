@@ -2,75 +2,71 @@
 
 class Table
 {
-    public function output_data($number, $product, $Quantity)
+    public function output_data($ID, $product, $quantity)
     {
-        echo '
+        require('connect_db.php');
+        echo '  
                 <tr>
-            	<td>' . $number . '</td>
+            	<td>' . $ID . '</td>
             	<td>' . $product . '</td>
             	<td id="centerUnits">шт</td>
-                <td id="quantity" class="centerQuantity">' . $Quantity . '</td>
-                <td><input type="button" value="изменить" onclick="change' . $number . '()"></td>
+                <td id="quantity" class="centerQuantity">' . $quantity . '</td>
+                <td><input type="button" value="" onclick="change' . $ID . '()" class="buttonChange"></td>
           		</tr>
-               
+                  <style>
+                  #popup' . $ID . ' {
+                      position: fixed;
+                      width: 100%;
+                      height: 100%;
+                      background-color: rgba(0, 0, 0, 0.5);
+                      top: 0;
+                      left: 0;
+                      display: flex;
+                      align-items: center;
+                      opacity: 0;
+                      visibility: hidden;
+                      transition: all 0.8s ease 0s;
+                    }
+      
+                    .buttonChange {
+                      background-image: url(img/5.png);
+                      background-size: contain;
+                      border: none;
+                      width: 26px;
+                      height: 26px;
+                    }
+                  </style>
+      
+                  <script>
+                      function change' . $ID . '() {
+                          let window = document.getElementById("popup' . $ID . '");
+                          window.style.visibility = "visible";
+                          window.style.opacity = 1;
+                      }
+                      function closeWindow' . $ID . '() {
+                          let window = document.getElementById("popup' . $ID . '");
+                          window.style.visibility = "hidden";
+                          window.style.opacity = 0;
+                      }
+                      function OK' . $ID . '() {
+                          let window = document.getElementById("popup' . $ID . '");
+                          window.style.visibility = "hidden";
+                          window.style.opacity = 0;
+                      }
+                  </script>
+                  
+                  <div id="popup' . $ID . '">
+                      <div id="popup_body">
+                          <form action="php_script/update.php" method="POST">
+                              <input type="text" value=' . $ID . ' name="ID" style="visibility: hidden;">
+                              <p>Наименование: <input type="text" id="nameInPopup" value="' . $product . '" name="name"></p>
+                              <p>Количество: <input type="text" value=' . $quantity . ' name="quantity"></p>
+                              <input type="button" value="Отмена" onclick="closeWindow' . $ID . '()">
+                              <input type="submit" value="ОК" onclick="OK' . $ID . '()">
+                          </form>
+                      </div>
+                  </div>
                 ';
     }
 
-
-    public function output_data_in_popup($ID)
-    {
-        require('connect_db.php');
-
-        $q = $db->query("SELECT * FROM products WHERE ID = " . $ID . "");
-        while ($row = $q->fetch()) {
-            $product  = "$row[Product]";
-            $quantity = "$row[Quantity]";
-        }
-        echo '
-            <style>
-            #popup' . $ID . ' {
-                position: fixed;
-                width: 100%;
-                height: 100%;
-                background-color: rgba(0, 0, 0, 0.5);
-                top: 0;
-                left: 0;
-                display: flex;
-                align-items: center;
-                opacity: 0;
-                visibility: hidden;
-                transition: all 0.8s ease 0s;
-              }
-              
-            </style>
-            <script>
-                function change' . $ID . '() {
-                    let window = document.getElementById("popup' . $ID . '");
-                    window.style.visibility = "visible";
-                    window.style.opacity = 1;
-              }
-            </script>
-            <div id="popup' . $ID . '">
-                <div id="popup_body">
-                    <form action="" method="POST">
-                        <p>Наименование: <input type="text" id="nameInPopup" value="' . $product . '" name="name"></p>
-                        <p>Количество: <input type="text" value=' . $quantity . ' name="quantity"></p>
-                        <input type="button" value="Отмена" onclick="closeWindow()">
-                        <input type="submit" value="ОК">
-                    </form>
-                </div>
-            </div> ';
-
-
-        $name = $_POST["name"];
-        $quantity = $_POST["quantity"];
-
-
-        $q = $db->query(
-            'UPDATE products
-                            SET Product = "' . $name . '", Quantity = ' . $quantity . '
-                            WHERE ID = ' . $ID . ''
-        );
-        header('Location: index.php');
-    }
 }
