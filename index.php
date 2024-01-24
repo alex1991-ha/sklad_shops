@@ -134,6 +134,8 @@ require('Classes.php');
         $Device15 = new Table();
         $Device15->output_data("$row[ID]", "$row[Product]", $row["Quantity"]);
       }
+
+
       //добавить строку таблицы
 
 
@@ -161,22 +163,15 @@ require('Classes.php');
   <!-- Модальное окно для добавления -->
   <div id="popupAdd">
     <div id="popup_body">
-      <!--<form action="php_script/add.php" method="POST">-->
-      <form action="index.php" method="POST">
+      <form action="php_script/add.php" method="POST">
+        <!-- <form action="index.php" method="POST"> -->
         <p>Наименование: <input type="text" id="nameInPopupAdd" value="" name="name"></p>
-        <?php
-        if (empty($_POST['name'])) {
-          // echo 'не заполнено';
-          echo '<script>alert("не заполнено")</script>';
-        }
-        ?>
         <p>Количество: <input type="text" value="" name="quantity"></p>
         <input type="button" value="Отмена" onclick="closeWindow()">
         <input type="submit" value="ОК" onclick="add()" name="but">
       </form>
     </div>
   </div>
-
 
 </body>
 
