@@ -2,10 +2,12 @@
 require('../Classes.php');
 require('../connect_db.php');
 
+$IDQuery = $_POST["ID"];
+
 $q = $db->query(
-    'UPDATE products
-                SET Product = "' . $name . '", Quantity = ' . $quantity . '
-                WHERE ID = ' . $IDQuery . ''
+    'DELETE FROM products
+     WHERE ID = ' . $IDQuery . ''
+
 );
 
 

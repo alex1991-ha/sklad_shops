@@ -47,10 +47,23 @@ class Table
                     .buttonChange {
                       background-image: url(img/change.png);
                       background-size: contain;
+                      background-color: #f8f6ff;
                       border: none;
                       width: 26px;
                       height: 26px;
                     }
+
+                    .buttonDelete {
+                        background-image: url(img/delete.png);
+                        background-size: contain;
+                        background-color: #f8f6ff;
+                        margin-left: 5px; 
+                        border: none;
+                        width: 26px;
+                        height: 26px;
+                    }
+
+                    
                   </style>
       
                   <script>
@@ -60,11 +73,6 @@ class Table
                           window.style.opacity = 1;
                       }
                       function closeWindow' . $ID . '() {
-                          let window = document.getElementById("popup' . $ID . '");
-                          window.style.visibility = "hidden";
-                          window.style.opacity = 0;
-                      }
-                      function OK' . $ID . '() {
                           let window = document.getElementById("popup' . $ID . '");
                           window.style.visibility = "hidden";
                           window.style.opacity = 0;
@@ -85,8 +93,11 @@ class Table
                       <div id="popup_body">
                           <form action="php_script/update.php" method="POST">
                               <input type="text" value=' . $ID . ' name="ID" style="visibility: hidden;">
-                              <p>Наименование: <input type="text" id="nameInPopup" value="' . $product . '" name="name"></p>
-                              <p>Количество: <input type="text" value=' . $quantity . ' name="quantity"></p>
+                              <p>Наименование: <input type="text" id="nameInPopup" value="' . $product . '" name="name" required
+                              oninvalid="this.setCustomValidity("Введите наименование")"
+                              oninput="setCustomValidity("")"></p>
+                              <p>Количество: <input type="text" value=' . $quantity . ' name="quantity" pattern="^[ 0-9]+$" required
+                              oninvalid="this.setCustomValidity("Здесь может быть только число")"></p>
                               <input type="button" value="Отмена" onclick="closeWindow' . $ID . '()">
                               <input type="submit" value="ОК" onclick="OK' . $ID . '()">
                           </form>
@@ -96,8 +107,9 @@ class Table
                   <div id="popupDelete' . $ID . '">
                     <div id="popup_body">
                         <form action="php_script/delete.php" method="POST">
+                            <input type="text" value=' . $ID . ' name="ID" style="visibility: hidden;">
                             <p>Вы уверены, что хотите удалить данное поле?</p>
-                            <input type="button" value="Отмена" onclick="closeWindowDelete()' . $ID . '">
+                            <input type="button" value="Отмена" onclick="closeWindowDelete' . $ID . '()">
                             <input type="submit" value="ОК" onclick="deleteFild()" name="buttonDelete">
                         </form>
                     </div>

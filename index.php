@@ -130,31 +130,31 @@ require('Classes.php');
       }
 
       $q = $db->query("SELECT * FROM products WHERE ID = 15");
-      while ($row = $q->fetch()) {
+    while ($row = $q->fetch()) {
         $Device15 = new Table();
         $Device15->output_data("$row[ID]", "$row[Product]", $row["Quantity"]);
-      }
-
-
+    }
+      $q = $db->query("SELECT * FROM products WHERE ID = 16");
+    while ($row = $q->fetch()) {
+        $Device16 = new Table();
+        $Device16->output_data("$row[ID]", "$row[Product]", $row["Quantity"]);
+    }
+      $q = $db->query("SELECT * FROM products WHERE ID = 17");
+    while ($row = $q->fetch()) {
+        $Device17 = new Table();
+        $Device17->output_data("$row[ID]", "$row[Product]", $row["Quantity"]);
+    }
+      $q = $db->query("SELECT * FROM products WHERE ID = 18");
+    while ($row = $q->fetch()) {
+        $Device18 = new Table();
+        $Device18->output_data("$row[ID]", "$row[Product]", $row["Quantity"]);
+    }
+      $q = $db->query("SELECT * FROM products WHERE ID = 19");
+    while ($row = $q->fetch()) {
+        $Device19 = new Table();
+        $Device19->output_data("$row[ID]", "$row[Product]", $row["Quantity"]);
+    }
       //добавить строку таблицы
-
-
-      //
-      //Валидация
-      //   try {
-      //     if (empty($name)) {
-      //         echo '<script>alert("введите")</script>'; 
-      //         exit(header('Location: ../index.php')); 
-      //     }
-      // }
-      // catch(Exception $e) {
-      //     echo$e->getMessage();
-      //}
-      // $name = $_POST["name"];
-      // $quantity = $_POST["quantity"];
-      // Header('Location: php_script/add.php?post=$name');
-
-      //
       ?>
 
     </table>
@@ -163,10 +163,12 @@ require('Classes.php');
   <!-- Модальное окно для добавления -->
   <div id="popupAdd">
     <div id="popup_body">
-      <form action="php_script/add.php" method="POST">
-        <!-- <form action="index.php" method="POST"> -->
-        <p>Наименование: <input type="text" id="nameInPopupAdd" value="" name="name"></p>
-        <p>Количество: <input type="text" value="" name="quantity"></p>
+      <form action="php_script/add.php" method="POST" id="formAdd">
+        <p>Наименование: <input type="text" id="nameInPopupAdd" name="name" required
+        oninvalid="this.setCustomValidity('Введите наименование')"
+        oninput="setCustomValidity('')"></p>
+        <p>Количество: <input type="text" name="quantity" pattern="^[ 0-9]+$" required
+        oninvalid="this.setCustomValidity('Здесь может быть только число')"></p> 
         <input type="button" value="Отмена" onclick="closeWindow()">
         <input type="submit" value="ОК" onclick="add()" name="but">
       </form>
