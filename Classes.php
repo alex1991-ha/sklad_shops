@@ -9,9 +9,9 @@ class Table
                 <tr>
             	<td>' . $ID . '</td>
             	<td>' . $product . '</td>
-            	<td id="centerUnits">шт</td>
-                <td id="quantity" class="centerQuantity">' . $quantity . '</td>
-                <td><input type="button" onclick="change' . $ID . '()" class="buttonChange">
+            	<td class="centerTable">шт</td>
+                <td id="quantity" class="centerTable">' . $quantity . '</td>
+                <td class="centerTable"><input type="button" onclick="change' . $ID . '()" class="buttonChange">
                     <input type="button" onclick="delete' . $ID . '()" class="buttonDelete">
                 </td>
           		</tr>
@@ -57,7 +57,8 @@ class Table
                         background-image: url(img/delete.png);
                         background-size: contain;
                         background-color: #f8f6ff;
-                        margin-left: 5px; 
+                        background-repeat: no-repeat;
+                        margin-left: 7px; 
                         border: none;
                         width: 26px;
                         height: 26px;
@@ -115,5 +116,28 @@ class Table
                     </div>
                 </div>
                 ';
+    }
+
+    public function collect($ID, $device) {
+        require('connect_db.php');
+
+        $q = $db->query(
+            'SELECT ID, Quantity
+             FROM products
+             WHERE ID = '.$ID.';'
+        );
+
+        while ($row = $q->fetch()) {
+            $ID = "$row[ID]";
+            $quantity = "$row[Quantity]";
+          }
+
+        $q = $db->query(
+            'UPDATE products
+                SET Quantity = '. $quantity - $device . ' 
+                WHERE ID = '.$ID.';'
+        );
+          
+        return $quantity;
     }
 }

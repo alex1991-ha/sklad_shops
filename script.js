@@ -1,12 +1,20 @@
 function add() {
   //вывод модального окна
-  let window = document.getElementById("popupAdd");
-  window.style.visibility = "visible";
-  window.style.opacity = 1;
+  let add = document.getElementById("popupAdd");
+  add.style.visibility = "visible";
+  add.style.opacity = 1;
+}
+
+function collect() {
+  let collect = document.getElementById("popupСollect");
+  collect.style.visibility = "visible";
+  collect.style.opacity = 1;
 }
 
 function closeWindow() {
-  let window1 = document.getElementById("popupAdd");
-  window1.style.visibility = "hidden";
-  window1.style.opacity = 0;
+  let Add = new ModalWindows();
+  Add.closeWindows("popupAdd");
+
+  let collect = new ModalWindows();
+  collect.closeWindows("popupСollect");
 }
