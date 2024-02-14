@@ -35,20 +35,21 @@ require('Classes.php');
       //Выгрузка из бд
       $q = $db->query(
         'SELECT ID
-        FROM products');
+        FROM products'
+      );
 
-        while ($row = $q->fetch()) {
-          $arr[] = array_values($row);
-        }
+      while ($row = $q->fetch()) {
+        $arr[] = array_values($row);
+      }
 
       for ($x = 0; $x < count($arr); $x++) {
         $ID = $x + 1;
-      
+
         $q = $db->query("SELECT * FROM products WHERE ID = $ID");
-          while ($row = $q->fetch()) {
-            $Device = new Table();
-            $Device->output_data("$row[ID]", "$row[Product]", $row["Quantity"]);
-          }
+        while ($row = $q->fetch()) {
+          $Device = new Table();
+          $Device->output_data("$row[ID]", "$row[Product]", $row["Quantity"]);
+        }
       }
       ?>
 
@@ -58,12 +59,10 @@ require('Classes.php');
   <!-- Модальное окно для добавления -->
   <div id="popupAdd">
     <div id="popup_body" class="popupWindows">
-      <div class="popudTitle">Добавить</div>
+      <div class="popupTitle">Добавить</div>
       <form action="php_script/add.php" method="POST" id="formAdd">
-        <p>Наименование: <input type="text" id="nameInPopupAdd" name="name" required
-        oninvalid="this.setCustomValidity('Введите наименование')"
-        oninput="setCustomValidity('')"></p>
-        <p>Количество: <input type="text" name="quantity" pattern="^[ 0-9]+$" required></p> 
+        <p>Наименование: <input type="text" id="nameInPopupAdd" name="name" required oninvalid="this.setCustomValidity('Введите наименование')" oninput="setCustomValidity('')"></p>
+        <p>Количество: <input type="text" name="quantity" pattern="^[ 0-9]+$" required></p>
         <input type="button" value="Отмена" onclick="closeWindow()">
         <input type="submit" value="ОК" onclick="add()" name="but">
       </form>
