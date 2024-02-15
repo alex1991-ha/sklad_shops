@@ -61,10 +61,12 @@ require('Classes.php');
     <div id="popup_body" class="popupWindows">
       <div class="popupTitle">Добавить</div>
       <form action="php_script/add.php" method="POST" id="formAdd">
-        <p>Наименование: <input type="text" id="nameInPopupAdd" name="name" required oninvalid="this.setCustomValidity('Введите наименование')" oninput="setCustomValidity('')"></p>
-        <p>Количество: <input type="text" name="quantity" pattern="^[ 0-9]+$" required></p>
-        <input type="button" value="Отмена" onclick="closeWindow()">
-        <input type="submit" value="ОК" onclick="add()" name="but">
+        <p><div>Наименование:</div> <input type="text" id="nameInPopupAdd" name="name" required oninvalid="this.setCustomValidity('Введите наименование')" oninput="setCustomValidity('')"></p>
+        <p><div>Количество:</div> <input type="number" name="quantity" min="1" max="1000" required></p>
+        <div class="buttonsPopup">
+          <input type="button" class="battons" value="Отмена" onclick="closeWindow()">
+          <input type="submit" class="battons" value="ОК" onclick="add()" name="but">
+        </div>
       </form>
     </div>
   </div>
@@ -78,7 +80,7 @@ require('Classes.php');
         <p>Введите количество сетевых фильтр 1,8 м.: <input type="number" id="" name="filter1_8" value="2" min="1" max="100"></p>
         <p>Введите количество сетевых фильтр 5 м.: <input type="number" id="" name="filter5" value="1" min="1" max="100"></p>
         <p>Нужен ли Вам KVM-переключатель? <input type="checkbox" name="KVM"></p>
-        <input type="button" value="Отмена" onclick="closeWindow()">
+        <input type="button" class="battons" value="Отмена" onclick="closeWindow()">
         <input type="submit" value="ОК" onclick="" name="">
       </form>
     </div>

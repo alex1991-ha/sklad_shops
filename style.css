@@ -83,7 +83,6 @@ tr:nth-child(even) td {
   font-size: 19px;
 }
 
-
 #popupAdd {
   position: fixed;
   width: 100%;
@@ -116,7 +115,7 @@ tr:nth-child(even) td {
   padding: 30px 10px;
   background-color: white;
   color: #808080;
-  font-size: 17px;
+  font-size: 18px;
 }
 
 .battons {
@@ -130,4 +129,23 @@ tr:nth-child(even) td {
   border-radius: 5px;
   margin-right: 5px;
   margin-bottom: 25px;
+}
+
+input[type="text"] {
+  width: 220px;
+  height: 20px;
+  font-size: 15px;
+}
+
+input[type="number"] {
+  width: 220px;
+  height: 20px;
+  font-size: 15px;
+}
+
+.buttonsPopup {
+  position: relative;
+  width: 124px;
+  margin-top: 30px;
+  margin-left: auto;
 }
