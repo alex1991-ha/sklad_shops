@@ -10,7 +10,7 @@ class Table
             	<td>' . $ID . '</td>
             	<td>' . $product . '</td>
             	<td class="centerTable">шт</td>
-                <td id="quantity" class="centerTable">' . $quantity . '</td>
+                <td class="centerTable">' . $quantity . '</td>
                 <td class="centerTable"><input type="button" onclick="change' . $ID . '()" class="buttonChange">
                     <input type="button" onclick="delete' . $ID . '()" class="buttonDelete">
                 </td>
@@ -91,27 +91,33 @@ class Table
                   </script>
                   
                   <div id="popup' . $ID . '">
-                      <div id="popup_body">
-                          <form action="php_script/update.php" method="POST">
-                              <input type="text" value=' . $ID . ' name="ID" style="visibility: hidden;">
-                              <p>Наименование: <input type="text" id="nameInPopup" value="' . $product . '" name="name" required
+                      <div id="popup_body" class="popupInsertChange">
+                          <div class="popupTitle">Изменить</div>
+                          <form action="php_script/update.php" method="POST">  
+                              <p><div>Наименование</div> <input type="text" id="nameInPopup" value="' . $product . '" name="name" required
                               oninvalid="this.setCustomValidity("Введите наименование")"
                               oninput="setCustomValidity("")"></p>
-                              <p>Количество: <input type="text" value=' . $quantity . ' name="quantity" pattern="^[ 0-9]+$" required
+                              <p><div>Количество</div> <input type="number" value=' . $quantity . ' name="quantity" min="1" max="1000" pattern="^[ 0-9]+$" required
                               oninvalid="this.setCustomValidity("Здесь может быть только число")"></p>
-                              <input type="button" value="Отмена" onclick="closeWindow' . $ID . '()">
-                              <input type="submit" value="ОК" onclick="OK' . $ID . '()">
+                              <div class="buttonsPopup">
+                                <input type="button" class="battons" value="Отмена" onclick="closeWindow' . $ID . '()">
+                                <input type="submit" class="battons" value="ОК" onclick="OK' . $ID . '()">
+                              </div>
+                              <input type="text" value=' . $ID . ' name="ID" style="visibility: hidden;">
                           </form>
                       </div>
                   </div>
 
                   <div id="popupDelete' . $ID . '">
-                    <div id="popup_body">
+                    <div id="popup_body" class="popupDelete">
+                        <div class="popupTitle">Удаление</div>
                         <form action="php_script/delete.php" method="POST">
                             <input type="text" value=' . $ID . ' name="ID" style="visibility: hidden;">
-                            <p>Вы уверены, что хотите удалить данное поле?</p>
-                            <input type="button" value="Отмена" onclick="closeWindowDelete' . $ID . '()">
-                            <input type="submit" value="ОК" onclick="deleteFild()" name="buttonDelete">
+                            <p style="font-size: 20px; margin-bottom: 15px;">Вы уверены, что хотите удалить данное поле?</p>
+                            <div class="buttonsPopup">
+                                <input type="button" class="battons" value="Отмена" onclick="closeWindowDelete' . $ID . '()">
+                                <input type="submit" class="battons" value="ОК" onclick="deleteFild()" name="buttonDelete">
+                            </div>
                         </form>
                     </div>
                 </div>

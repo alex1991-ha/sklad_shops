@@ -2,7 +2,7 @@ body {
   font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     "Helvetica", "Arial", sans-serif;
-  margin-left: 40px;
+  margin-left: 80px;
 }
 
 table {
@@ -43,7 +43,6 @@ th:last-child {
 td {
   padding-top: 10px;
   padding-bottom: 10px;
-  /* background: #808080; */
   color: #808080;
 }
 
@@ -113,6 +112,7 @@ tr:nth-child(even) td {
 
 #popup_body {
   padding: 30px 10px;
+  margin-left: 300px;
   background-color: white;
   color: #808080;
   font-size: 18px;
@@ -131,16 +131,17 @@ tr:nth-child(even) td {
   margin-bottom: 25px;
 }
 
-input[type="text"] {
+input[type="text"],
+input[type="number"] {
   width: 220px;
   height: 20px;
   font-size: 15px;
 }
 
-input[type="number"] {
-  width: 220px;
-  height: 20px;
-  font-size: 15px;
+input[type="checkbox"] {
+  width: 15px;
+  height: 15px;
+  margin-left: 10px;
 }
 
 .buttonsPopup {
@@ -148,4 +149,16 @@ input[type="number"] {
   width: 124px;
   margin-top: 30px;
   margin-left: auto;
+}
+
+.popupInsertChange {
+  height: 207px;
+}
+
+.popupDelete {
+  height: 145px;
+}
+
+.popupСollect {
+  height: 387px;
 }
